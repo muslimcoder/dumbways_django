@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # third parties
+    'rest_framework',
+
     # modules
     'courses.apps.CoursesConfig',
 
