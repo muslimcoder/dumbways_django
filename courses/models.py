@@ -11,3 +11,6 @@ class Courses(models.Model):
     video_url = models.CharField(max_length=128)
     price = models.FloatField(default=0)
     image_url = models.CharField(max_length=128, null=True, blank=True)
+
+    def __str__(self):
+        return self.title
