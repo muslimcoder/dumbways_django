@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # modules
+    'user.apps.UserConfig',
     'courses.apps.CoursesConfig',
 
     'django.contrib.admin',
