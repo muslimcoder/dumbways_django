@@ -4,10 +4,10 @@ from django.contrib.auth.models import User
 from .models import Curriculums
 from courses.models import Courses
 from user.serializers import UserSerializer
-# from courses.seriazilers import CoursesSerializer
+from rest_framework_recursive.fields import RecursiveField
 
 class CurriculumsSerializer(serializers.ModelSerializer):
-    # course = CoursesSerializer(required=False, read_only=True)
+    course = RecursiveField('courses.serializers.CoursesSerializerSimple', read_only=True)
     course_id = serializers.IntegerField(write_only=True, required=False, allow_null=True)
 
     class Meta:
@@ -37,3 +37,15 @@ class CurriculumsSerializer(serializers.ModelSerializer):
         curriculum.save()
 
         return curriculum
+
+class CurriculumsSerializerSimple(serializers.ModelSerializer):
+    class Meta:
+        model = Curriculums
+        fields = (
+            'id',
+            'title',
+            'attachment_url',
+            'type',
+
+            'created_by'
+        )

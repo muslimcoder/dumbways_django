@@ -2,3 +2,4 @@ mysqlclient
 djangorestframework
 django-filter
 djangorestframework-jwt
+djangorestframework-recursive

@@ -3,10 +3,10 @@ from django.contrib.auth.models import User
 
 from .models import Courses
 from user.serializers import UserSerializer
-from curriculums.seriazilers import CurriculumsSerializer
+from curriculums.serializers import CurriculumsSerializerSimple
 
 class CoursesSerializer(serializers.ModelSerializer):
-    curriculums = CurriculumsSerializer(many=True, read_only=True)
+    curriculums = CurriculumsSerializerSimple(many=True, read_only=True)
 
     class Meta:
         model = Courses
@@ -37,3 +37,18 @@ class CoursesSerializer(serializers.ModelSerializer):
         course.save()
 
         return course
+
+class CoursesSerializerSimple(serializers.ModelSerializer):
+    class Meta:
+        model = Courses
+        fields = (
+            'id',
+            'title',
+            'subtitle',
+            'description',
+            'video_url',
+            'price',
+            'image_url',
+
+            'created_by',
+        )

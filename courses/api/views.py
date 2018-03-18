@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from ..models import Courses
-from ..seriazilers import CoursesSerializer
+from ..serializers import CoursesSerializer
 
 class CoursesViewSet(viewsets.ModelViewSet):
 
