@@ -32,12 +32,6 @@ class CurriculumsSerializer(serializers.ModelSerializer):
         # Once you are done, create the instance with the validated data
         curriculum = Curriculums(**validated_data)
 
-        # relate with user
-        created_by_id = validated_data.get("created_by_id")
-        validated_data.pop("created_by_id", None)
-        user = User.objects.filter(id=created_by_id).first()
-        curriculum.created_by = user
-
         # relate with course
         course_id = validated_data.get("course_id")
         validated_data.pop("course_id", None)
