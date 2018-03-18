@@ -18,8 +18,10 @@ from django.urls import path, include
 from rest_framework import routers
 
 from courses.api.views import CoursesViewSet
+from user.api.views import UserViewSet
 
 router = routers.DefaultRouter()
+router.register('user', UserViewSet)
 router.register('courses', CoursesViewSet)
 
 urlpatterns = [
