@@ -3,10 +3,10 @@ from django.contrib.auth.models import User
 
 from .models import Courses
 from user.serializers import UserSerializer
+from curriculums.seriazilers import CurriculumsSerializer
 
 class CoursesSerializer(serializers.ModelSerializer):
-    created_by = UserSerializer(required=False)
-    created_by_id = serializers.IntegerField(write_only=True, required=False, allow_null=True)
+    curriculums = CurriculumsSerializer(many=True, read_only=True)
 
     class Meta:
         model = Courses
@@ -19,8 +19,8 @@ class CoursesSerializer(serializers.ModelSerializer):
             'price',
             'image_url',
 
-            'created_by_id',
-            'created_by'
+            'curriculums',
+            'created_by',
         )
 
 

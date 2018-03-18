@@ -4,13 +4,10 @@ from django.contrib.auth.models import User
 from .models import Curriculums
 from courses.models import Courses
 from user.serializers import UserSerializer
-from courses.seriazilers import CoursesSerializer
+# from courses.seriazilers import CoursesSerializer
 
 class CurriculumsSerializer(serializers.ModelSerializer):
-    created_by = UserSerializer(required=False)
-    created_by_id = serializers.IntegerField(write_only=True, required=False, allow_null=True)
-
-    course = CoursesSerializer(required=False, read_only=True)
+    # course = CoursesSerializer(required=False, read_only=True)
     course_id = serializers.IntegerField(write_only=True, required=False, allow_null=True)
 
     class Meta:
@@ -23,7 +20,6 @@ class CurriculumsSerializer(serializers.ModelSerializer):
 
             'course_id',
             'course',
-            'created_by_id',
             'created_by'
         )
 

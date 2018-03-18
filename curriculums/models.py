@@ -15,7 +15,8 @@ class Curriculums(models.Model):
     course = models.ForeignKey(
         'courses.Courses',
         on_delete=models.CASCADE,
-        null=True
+        null=True,
+        related_name="curriculums"
     )
     created_by = models.ForeignKey(
         User,
